@@ -1,0 +1,4 @@
+services:
+#    sw_prestataire.example:
+#        class: SW\PrestataireBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

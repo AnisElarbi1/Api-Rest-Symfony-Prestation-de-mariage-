@@ -1,0 +1,250 @@
+<?php
+
+namespace SW\PrestataireBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LigneMessage
+ *
+ * @ORM\Table(name="ligne_message")
+ * @ORM\Entity(repositoryClass="SW\PrestataireBundle\Repository\LigneMessageRepository")
+ */
+class LigneMessage
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pseudo", type="string", length=255)
+     */
+    private $pseudo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenue", type="text")
+     */
+    private $contenue;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="destinataire", type="integer")
+     */
+    private $destinataire;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="expediteur", type="integer")
+     */
+    private $expediteur;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateEnvoie", type="datetime")
+     */
+    private $dateEnvoie;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="vue", type="boolean")
+     */
+    private $vue;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SW\PrestataireBundle\Entity\Discussion", inversedBy="ligneMessages", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $discussion;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set contenue
+     *
+     * @param string $contenue
+     *
+     * @return LigneMessage
+     */
+    public function setContenue($contenue)
+    {
+        $this->contenue = $contenue;
+
+        return $this;
+    }
+
+    /**
+     * Get contenue
+     *
+     * @return string
+     */
+    public function getContenue()
+    {
+        return $this->contenue;
+    }
+
+    /**
+     * Set destinataire
+     *
+     * @param integer $destinataire
+     *
+     * @return LigneMessage
+     */
+    public function setDestinataire($destinataire)
+    {
+        $this->destinataire = $destinataire;
+
+        return $this;
+    }
+
+    /**
+     * Get destinataire
+     *
+     * @return int
+     */
+    public function getDestinataire()
+    {
+        return $this->destinataire;
+    }
+
+    /**
+     * Set dateEnvoie
+     *
+     * @param \DateTime $dateEnvoie
+     *
+     * @return LigneMessage
+     */
+    public function setDateEnvoie($dateEnvoie)
+    {
+        $this->dateEnvoie = $dateEnvoie;
+
+        return $this;
+    }
+
+    /**
+     * Get dateEnvoie
+     *
+     * @return \DateTime
+     */
+    public function getDateEnvoie()
+    {
+        return $this->dateEnvoie;
+    }
+
+    /**
+     * Set vue
+     *
+     * @param boolean $vue
+     *
+     * @return LigneMessage
+     */
+    public function setVue($vue)
+    {
+        $this->vue = $vue;
+
+        return $this;
+    }
+
+    /**
+     * Get vue
+     *
+     * @return bool
+     */
+    public function getVue()
+    {
+        return $this->vue;
+    }
+
+    /**
+     * Set discussion
+     *
+     * @param \SW\PrestataireBundle\Entity\Discussion $discussion
+     *
+     * @return LigneMessage
+     */
+    public function setDiscussion(\SW\PrestataireBundle\Entity\Discussion $discussion)
+    {
+        $this->discussion = $discussion;
+
+        return $this;
+    }
+
+    /**
+     * Get discussion
+     *
+     * @return \SW\PrestataireBundle\Entity\Discussion
+     */
+    public function getDiscussion()
+    {
+        return $this->discussion;
+    }
+
+    /**
+     * Set expediteur
+     *
+     * @param integer $expediteur
+     *
+     * @return LigneMessage
+     */
+    public function setExpediteur($expediteur)
+    {
+        $this->expediteur = $expediteur;
+
+        return $this;
+    }
+
+    /**
+     * Get expediteur
+     *
+     * @return integer
+     */
+    public function getExpediteur()
+    {
+        return $this->expediteur;
+    }
+
+    /**
+     * Set pseudo
+     *
+     * @param string $pseudo
+     *
+     * @return LigneMessage
+     */
+    public function setPseudo($pseudo)
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    /**
+     * Get pseudo
+     *
+     * @return string
+     */
+    public function getPseudo()
+    {
+        return $this->pseudo;
+    }
+}
